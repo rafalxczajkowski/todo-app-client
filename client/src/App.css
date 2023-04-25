@@ -1,0 +1,111 @@
+:root {
+  --background-color: #282c34;
+  --on-hover-background-color: #474747;
+  --completed-color: #A0F000;
+  --delete-color: #FF0000;
+  --row-width: 400px;
+  --icon-width: 20px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+h3 {
+  border-bottom: 2px solid var(--completed-color);
+}
+
+ul {
+  padding: 0;
+}
+
+.task-row, .form-row {
+  width: var(--row-width);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-row:hover, .form-row:hover {
+  background-color: var(--on-hover-background-color);
+}
+
+.task-row:hover .fa-circle-xmark {
+  display: inline;
+}
+
+.fa-circle-check {
+  color: var(--completed-color);
+}
+
+.task-row.completed > input {
+  text-decoration-line: line-through;
+  color: var(--completed-color);
+}
+
+.fa-circle-xmark {
+  display: none;
+}
+
+.fa-circle-xmark:hover {
+  color: var(--delete-color);
+}
+
+.icon-container {
+  width: var(--icon-width);
+}
+
+.svg-inline--fa:active {
+  transform: translate(0px, 2px);
+}
+
+.task-name, .add-task-input {
+  background-color: inherit;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  flex-grow: 1;
+  text-align: left;
+  margin: 0 4px;
+}
+
+.form-row {
+  border: 1px solid var(--on-hover-background-color);
+}
+
+.add-task-input {
+  margin-left: 0 4px;
+}
+
+button {
+  width: 60px;
+  background-color: inherit;
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: inherit;
+}
+
+button:active {
+  border: 1px solid var(--completed-color);
+  color: var(--completed-color);
+}
+
+input {
+  outline: none;
+}
