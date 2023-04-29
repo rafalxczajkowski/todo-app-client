@@ -1,0 +1,13 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "An App created in process of learning React and Express",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "devStart": "nodemon server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
