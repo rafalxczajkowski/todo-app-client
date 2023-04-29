@@ -2,10 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const logger = require('morgan')
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 3001
 const indexRouter = require('./routes/index')
-
 require('dotenv').config()
+const PORT = process.env.PORT || 3001
 
 mongoose.connect(process.env.MONGO_URI, console.log('Connected to database'))
 
