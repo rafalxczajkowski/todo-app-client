@@ -18,7 +18,7 @@ app.use(express.json())
 app.use('/api', indexRouter)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+  res.send(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
 app.listen(PORT, console.log(`Server is running on port: ${PORT}`))
