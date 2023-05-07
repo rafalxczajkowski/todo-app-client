@@ -1,3 +1,3 @@
 ### todo-app
 
-An App created with React and Node + Express
+An App created with React, Node + Express, MongoDB
