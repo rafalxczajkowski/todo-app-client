@@ -8,7 +8,11 @@ export default function App() {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    axios.get('/api').then((res) => setTasks(res.data))
+    try {
+      refreshLists()
+    } catch (error) {
+      console.error(error)
+    }
   }, [])
 
   async function refreshLists() {
