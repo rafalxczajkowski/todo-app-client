@@ -1,16 +1,19 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose'
 
-const TaskSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    maxlength: [100, 'The name cannot be longer than 100 characters'],
-    trim: true,
+const TaskSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      maxlength: [100, 'The name cannot be longer than 100 characters'],
+      trim: true,
+    },
+    completed: {
+      type: Boolean,
+      default: false,
+    },
   },
-  completed: {
-    type: Boolean,
-    default: false,
-  },
-})
+  { timestamps: true }
+)
 
-module.exports = mongoose.model('Task', TaskSchema)
+export default model('Task', TaskSchema)
