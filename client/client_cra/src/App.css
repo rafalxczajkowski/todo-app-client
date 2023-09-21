@@ -1,8 +1,8 @@
 :root {
   --background-color: #282c34;
   --on-hover-background-color: #474747;
-  --completed-color: #A0F000;
-  --delete-color: #FF0000;
+  --completed-color: #a0f000;
+  --delete-color: #ff0000;
   --row-width: 400px;
   --icon-width: 20px;
 }
@@ -27,15 +27,21 @@ ul {
   padding: 0;
 }
 
-.task-row, .form-row {
+.task-row,
+.form-row {
   width: var(--row-width);
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* from neumorphism */
+  /* background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
 }
 
-.task-row:hover, .form-row:hover {
+.task-row:hover,
+.form-row:hover {
   background-color: var(--on-hover-background-color);
 }
 
@@ -68,7 +74,8 @@ ul {
   transform: translate(0px, 2px);
 }
 
-.task-name, .add-task-input {
+.task-name,
+.add-task-input {
   background-color: inherit;
   color: rgb(255, 255, 255);
   font-size: 1rem;

@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const Task = require('../models/Task').default
+import Task from '../models/Task.js'
+import { Router } from 'express'
+const router = Router()
 
 router.get('/', async (req, res) => {
   try {
@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
   try {
-    const { id: taskId } = req.params
-    const taskUpdated = await Task.findByIdAndUpdate(taskId, req.body, {
+    const { id } = req.params
+    const taskUpdated = await Task.findByIdAndUpdate(id, req.body, {
       new: true,
       runValidators: true,
     })
@@ -38,8 +38,8 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const { id: taskId } = req.params
-    const taskDeleted = await Task.findByIdAndDelete(taskId)
+    const { id } = req.params
+    const taskDeleted = await Task.findByIdAndDelete(id)
     res.status(200).json(taskDeleted)
   } catch (error) {
     console.log(error.message)
@@ -47,4 +47,4 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
-module.exports = router
+export default router
