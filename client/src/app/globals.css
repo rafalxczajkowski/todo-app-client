@@ -8,7 +8,6 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   text-align: center;
   margin: 0;
   background-color: var(--background-color);
@@ -30,89 +29,97 @@ ul {
 .task-row,
 .form-row {
   width: var(--row-width);
+  height: 30px;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* from neumorphism */
-  /* background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
+  padding-left: 5px;
+  margin: 10px;
 }
 
-.task-row:hover,
-.form-row:hover {
+.task-row {
+  box-shadow: 1px 1px 3px #bebebe83, -1px -1px 3px #ffffff83;
+}
+
+.task-row:hover {
   background-color: var(--on-hover-background-color);
 }
 
-.task-row:hover .fa-circle-xmark {
-  display: inline;
+.task-row input {
+  background: none;
 }
 
-.fa-circle-check {
+.task-row.completed .check-icon-container {
   color: var(--completed-color);
 }
 
-.task-row.completed > input {
+.task-row.completed input {
   text-decoration-line: line-through;
-  color: var(--completed-color);
 }
 
-.fa-circle-xmark {
+.task-row .delete-icon-container {
   display: none;
 }
 
-.fa-circle-xmark:hover {
+.task-row:hover .delete-icon-container {
+  display: flex;
+}
+
+.task-row .delete-icon-container:hover {
   color: var(--delete-color);
 }
 
 .icon-container {
-  width: var(--icon-width);
+  /* width: var(--icon-width); */
+  display: flex;
+  align-items: center;
+  padding-right: 3px;
 }
 
-.svg-inline--fa:active {
+.icon-container:active {
   transform: translate(0px, 2px);
 }
 
-.task-name,
-.add-task-input {
+input {
   background-color: inherit;
   color: rgb(255, 255, 255);
   font-size: 1rem;
   font-family: inherit;
-  border: none;
-  flex-grow: 1;
+  width: 100%;
   text-align: left;
+  outline: none;
+}
+
+.task-name-input {
+  border: none;
   margin: 0 4px;
 }
 
-.form-row {
-  border: 1px solid var(--on-hover-background-color);
-}
-
 .add-task-input {
-  margin-left: 0 4px;
+  margin-left: 4px;
+  padding: 0 2px;
+  height: 30px;
+  border: 1px solid var(--on-hover-background-color);
+  border-radius: 4px 0 0 4px;
 }
 
 button {
   width: 60px;
+  height: 32px;
   background-color: inherit;
   color: rgb(255, 255, 255);
   border: 1px solid white;
-  border-radius: 4px;
+  border-radius: 0 4px 4px 0;
   font-size: 1rem;
   font-family: inherit;
 }
 
 button:hover {
-  background-color: inherit;
+  background-color: var(--on-hover-background-color);
 }
 
 button:active {
   border: 1px solid var(--completed-color);
   color: var(--completed-color);
-}
-
-input {
-  outline: none;
 }
