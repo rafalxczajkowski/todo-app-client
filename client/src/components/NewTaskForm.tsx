@@ -1,34 +1,33 @@
-'use client'
-
 import { FiPlus } from 'react-icons/fi'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { path } from './TaskList'
+import { apiPath } from '../App'
 
-export default function NewTaskForm() {
+export default function NewTaskForm({
+  refreshLists,
+}: {
+  refreshLists: () => Promise<void>
+}) {
   const [newTask, setNewTask] = useState('')
 
-  const router = useRouter()
-
-  async function addTask(name) {
+  async function addTask(name: string) {
     try {
-      await fetch(`${path}`, {
+      await fetch(apiPath, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, completed: false }),
       })
-      router.refresh()
+      refreshLists()
     } catch (error) {
       console.log(error)
     }
   }
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (newTask === '') return
     await addTask(newTask)
-    // setNewTask('')
-    router.refresh()
+    setNewTask('')
+    refreshLists()
   }
 
   return (

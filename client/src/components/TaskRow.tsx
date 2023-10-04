@@ -2,24 +2,27 @@
 import { FiCircle, FiXCircle } from 'react-icons/fi'
 import { FaCheckCircle } from 'react-icons/fa'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { path } from './TaskList'
+import { Task } from '../App'
+import { apiPath } from '../App'
 
-export function TaskRow({ _id, name, completed }) {
+interface taskRowProps extends Task {
+  refreshLists: () => Promise<void>
+}
+
+export function TaskRow({ _id, name, completed, refreshLists }: taskRowProps) {
   const [taskName, setTaskName] = useState(name)
   const [isCompleted, setIsCompleted] = useState(completed)
 
-  const router = useRouter()
   const icon = isCompleted ? <FaCheckCircle /> : <FiCircle />
 
-  async function updateName(newName) {
+  async function updateName(newName: string) {
     try {
-      await fetch(`${path}${_id}`, {
+      await fetch(`${apiPath}${_id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newName }),
       })
-      router.refresh()
+      refreshLists()
     } catch (error) {
       console.log(error)
     }
@@ -27,13 +30,13 @@ export function TaskRow({ _id, name, completed }) {
 
   async function toggleTask() {
     try {
-      await fetch(`${path}${_id}`, {
+      await fetch(`${apiPath}${_id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !isCompleted }),
       })
       setIsCompleted(!isCompleted)
-      router.refresh()
+      refreshLists()
     } catch (error) {
       console.log(error)
     }
@@ -41,10 +44,10 @@ export function TaskRow({ _id, name, completed }) {
 
   async function deleteTask() {
     try {
-      await fetch(`${path}${_id}`, {
+      await fetch(`${apiPath}${_id}`, {
         method: 'DELETE',
       })
-      router.refresh()
+      refreshLists()
     } catch (error) {
       console.log(error)
     }
