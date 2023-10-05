@@ -18,5 +18,5 @@ This is a simple todo application built using React and TypeScript at the fronte
 
 ## Usage
 
-1. Open the application in your browser.
-2. Add, remove or edit tasks.
+1. Open the application in your browsesr.
+2. Add, remove or edit tasks.de
