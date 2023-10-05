@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple todo application built using Vite, React and TypeScript for the frontend and Node, Express, MongoDB for the backend. It allows to add, remove and edit tasks. Doesn't have authentication.
+This is a simple todo application built using React and TypeScript at the frontend and Node, Express, MongoDB at the backend. It allows to add, remove and edit tasks. Doesn't have authentication.
 
 ## Installation
 
