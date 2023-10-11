@@ -1,12 +1,15 @@
-# Todo App
+# Todo App - Client
 
 ## Description
 
-This is a simple todo application built using React and TypeScript at the frontend and Node, Express, MongoDB at the backend. It allows to add, remove and edit tasks. Doesn't have authentication.
+This is a frontend part of a simple todo application built using React and TypeScript.
+Backend part built with Node, Express, MongoDB is at [todo-app-server](https://github.com/rafalxczajkowski/todo-app-server).
+
+The application allows to add, remove and edit tasks. Doesn't have authentication.
 
 ## Installation
 
-1. Clone the repository.
+1. Clone both repositories.
 2. Run server.
    1. Go to 'server' directiory.
    2. Run `npm install`.
@@ -19,4 +22,4 @@ This is a simple todo application built using React and TypeScript at the fronte
 ## Usage
 
 1. Open the application in your browsesr.
-2. Add, remove or edit tasks.de
+2. Add, remove or edit tasks.
