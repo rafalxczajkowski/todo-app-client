@@ -3,7 +3,7 @@ import './App.css'
 import TaskList from './components/TaskList'
 import NewTaskForm from './components/NewTaskForm'
 
-export const apiPath = 'http://localhost:3001/api/'
+export const apiPath = 'https://xrttrx-todo-app-server.azurewebsites.net/api'
 
 export interface Task {
   _id: string
