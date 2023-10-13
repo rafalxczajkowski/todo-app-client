@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a frontend part of a simple todo application built using React and TypeScript.
+Frontend part of a todo application built using React and TypeScript.
 Backend part built with Node, Express, MongoDB is at [todo-app-server](https://github.com/rafalxczajkowski/todo-app-server).
 
 The application allows to add, remove and edit tasks. Doesn't have authentication.
